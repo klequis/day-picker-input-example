@@ -4,6 +4,7 @@ import { DateUtils } from 'react-day-picker'
 import './style.css'
 import dateFnsFormat from 'date-fns/format'
 import dateFnsParse from 'date-fns/parse'
+import styled from 'styled-components'
 
 const parseDate = (str, format, locale) => {
   const parsed = dateFnsParse(str, format, new Date(), { locale })
@@ -17,6 +18,10 @@ const formatDate = (date, format, locale) => {
   return dateFnsFormat(date, format, { locale })
 }
 
+const ExampleDiv = styled.div`
+  padding-top: 50px;
+`
+
 export const Example = () => {
 
   const [_selectedDay, _setSelectedDay] = useState(undefined)
@@ -29,7 +34,7 @@ export const Example = () => {
 
   console.log('_selectedDay', _selectedDay)
   return (
-    <div>
+    <ExampleDiv>
 
       <DayPickerInput
         onDayChange={_dayChange}
@@ -46,6 +51,6 @@ export const Example = () => {
         <p>Please select a day.</p>
       )}
 
-    </div>
+    </ExampleDiv>
   )
 }
